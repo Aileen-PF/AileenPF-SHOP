@@ -1,0 +1,42 @@
+<%- include('../template/header.ejs') %>
+
+    <div class="container">
+
+        <%- include('navbar.ejs') %>
+
+        <div class="mb-5">
+            <p class="text-4xl font-bold"><ion-icon class="text-5xl" name="albums-outline" style="margin-bottom: -8px;"></ion-icon> ประวัติทั้งหมด</p>
+        </div>
+    
+        <div class="flex place-items-center">
+            <div class="grid h-full bg-base-300 rounded-box p-3 px-3">
+                <a href="/profile"><button class="btn btn-neutral mb-1 w-96">โปรไฟล์ของคุณ</button></a>
+                <a href="/setting"><button class="btn btn-neutral mb-1 w-96">แก้ไขโปรไฟล์</button></a>
+                <button class="btn btn-neutral mb-1">ประวัติเติมเงิน</button>
+                <button class="btn btn-neutral mb-1">ประวัติการซื้อของ</button>
+            
+                <% if (user.urole === 'admin') { %>
+                    <a href="/backend"><button class="btn btn-outline-neutral mb-1 w-96">จัดการหลังร้าน</button></a>
+                <% } %>
+            </div>
+            <div class="p-14 w-full">
+                <div class="flex py-3">
+                    <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">ยอดการเติมในวันนี้</div>
+                    <div class="divider divider-horizontal"></div>
+                    <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">ยอดการเติมในเดือนนี้</div>
+                    <div class="divider divider-horizontal"></div>
+                    <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">ยอดการเติมทั้งหมด</div>
+                </div>
+                <div class="flex py-3">
+                    <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">ยอดกาารซื้อสินค้าวันนี้</div>
+                    <div class="divider divider-horizontal"></div>
+                    <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">ยอดกาารซื้อสินค้าเดือนนี้</div>
+                    <div class="divider divider-horizontal"></div>
+                    <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">ยอดกาารซื้อสินค้าทั้งหมด</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<%- include('../template/footer.ejs') %>

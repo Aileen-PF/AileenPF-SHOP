@@ -1,0 +1,98 @@
+<%- include('../template/header.ejs') %>
+
+    <div class="container">
+
+        <%- include('navbar.ejs') %>
+
+        <div class="mb-5">
+            <p class="text-4xl font-bold"><ion-icon class="text-5xl" name="people-outline" style="margin-bottom: -8px;"></ion-icon> จัดการผู้ใช้</p>
+        </div>
+    
+        <div class="card shrink-0 w-full shadow-2xl bg-base-100">
+            <div class="mb-5 pt-3 grid place-items-center">
+                <div class="navbar bg-base-100">
+                    <div class="navbar-start">
+                      <div class="dropdown">
+                        <label tabindex="0" class="btn btn-ghost btn-circle">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                        </label>
+                        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                          <li><a>All</a></li>
+                          <li><a>Admin</a></li>
+                          <li><a>User</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="navbar-center">
+                      <a class="btn btn-ghost text-xl">รายชื่อผู้ใช้ทั้งหมด</a>
+                    </div>
+                    <div class="navbar-end">
+                        <ion-icon class="text-4xl p-3" name="Search-outline" style="margin-bottom: -2px;"></ion-icon>
+                        <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto rounded-badge" />
+                    </div>
+                  </div>
+            </div>
+            <div class="container">
+                <form class="card-body">
+                    <div class="overflow-x-auto h-80">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ไอดี</th>
+                                    <th>ชื่อผู้ใช้</th>
+                                    <th>อีเมล</th>
+                                    <th>สถานะ</th>
+                                    <th>เข้าร่วมเมื่อ</th>
+                                    <th>ยอดคงเหลือ</th>
+                                    <th>ยอดการเติม</th>
+                                    <th>ตั้งค่า</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% user.users.forEach(user.user => { %>
+                                    <tr>
+                                        <td><%= user.user.id %></td>
+                                        <td><%= user.username %></td>
+                                        <td><%= user.email %></td>
+                                        <td><%= user.urole %></td>
+                                        <td><%= user.created_at %></td>
+                                        <td><%= user.money %></td>
+                                        <td><%= user.topup_balance %></td>
+                                        <td>
+                                            <div class="flex-none">
+                                                <div class="dropdown dropdown-end">
+                                                    <label tabindex="0" class="btn btn-ghost btn-circle">
+                                                        <div class="indicator">
+                                                            <ion-icon style="font-size: 25px;" name="settings-outline"></ion-icon>
+                                                        </div>
+                                                    </label>
+                                                    <div tabindex="0" class="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
+                                                        <div class="card-body">
+                                                            <div>
+                                                                <a href="/user_edit/<%= user.id %>" class="btn btn-success w-full">
+                                                                    <ion-icon style="font-size: 25px;" name="pencil-outline"></ion-icon>
+                                                                    แก้ไข
+                                                                </a>
+                                                            </div>
+                                                            <div>
+                                                                <a href="/delete/<%= user.id %>" class="btn btn-error w-full" onclick="return alert('คุณต้องการลบชื่อผู้ใช้นี้ใช่หรือไม่?')">
+                                                                    <ion-icon style="font-size: 25px;" name="trash-outline"></ion-icon>
+                                                                    ลบ
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>                
+            </div>
+        </div>
+    </div>
+
+<%- include('../template/footer.ejs') %>

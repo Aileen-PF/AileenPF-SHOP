@@ -1,0 +1,53 @@
+<%- include('template/header.ejs') %>
+
+
+        <div class="grid flex-grow h-full card rounded-box p-3 px-3 place-items-center">
+            <div class="container">
+            <div class="card shrink-0 w-full">
+                <div class="mb-5 pt-3 grid place-items-center">
+                    <div class="navbar">
+                        <div class="navbar-start">
+                          
+                        </div>
+                        <div class="navbar-center">
+                          <div class="text-4xl font-bold"><ion-icon class="text-5xl" name="card-outline" style="margin-bottom: -10px;"></ion-icon> เลือกช่องทางการเติมเงิน</div>
+                        </div>
+                        <div class="navbar-end">
+                        </div>
+                      </div>
+                </div>
+                <hr>
+                
+                        <div class="flex flex-col w-full lg:flex-row container">
+                            <a href="/angpao" class="grid flex-grow h-80 card bg-[#1f2122] rounded-box place-items-center hvr-reveal">
+                                <div class="py-5">
+                                <ion-icon name="gift-outline" style="font-size: 200px;"></ion-icon>
+                                <div>
+                                    <p class="font-bold text-2xl">ซองอั่งเปา</p>
+                                    <p>เติมเงินผ่านซองอั่งเปา TrueWellet</p>
+                                </div>
+                            </div>
+                            </a> 
+                            <div class="divider lg:divider-horizontal">OR</div> 
+                            <a href="/slip" class="grid flex-grow h-80 card bg-[#1f2122] rounded-box place-items-center hvr-reveal">
+                                <ion-icon name="wallet-outline" style="font-size: 200px;"></ion-icon>
+                                <div>
+                                    <p class="font-bold text-2xl">TrueWellet</p>
+                                    <p>เติมเงินผ่านการโอน TrueWellet</p>
+                                </div>
+                            </a>
+                            <div class="divider lg:divider-horizontal">OR</div> 
+                            <a href="/bank" class="grid flex-grow h-80 card bg-[#1f2122] rounded-box place-items-center hvr-reveal">
+                                <ion-icon name="logo-bitcoin" style="font-size: 200px;"></ion-icon>
+                                
+                                <div>
+                                    <p class="font-bold text-2xl">ธนาคาร</p>
+                                    <p>เติมเงินผ่านธนาคาร</p>
+                                </div>
+                            </a>
+                          </div>
+                </div>
+            </div>
+        </div>
+
+<%- include('template/footer.ejs') %>

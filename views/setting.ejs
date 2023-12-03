@@ -1,0 +1,114 @@
+<%- include('template/header.ejs') %>
+
+    <div class="container">
+        <div class="mb-5">
+            <p class="text-4xl font-bold"><ion-icon class="text-5xl" name="person-circle-outline" style="margin-bottom: -8px;"></ion-icon> แก้ไขโปรไฟล์</p>
+        </div>
+    
+    <div class="flex place-items-center">
+        <div class="grid h-full bg-base-300 rounded-box p-3 px-3 border" style="border-color: #4e4e4e">
+            <a href="/profile"><button class="btn btn-neutral mb-1 w-96">โปรไฟล์ของคุณ</button></a>
+            <a href="/setting"><button class="btn btn-outline-neutral mb-1 w-96">แก้ไขโปรไฟล์</button></a>
+            <a href="/history"><button class="btn btn-neutral mb-1 w-96">ประวัติการซื้อของ</button></a>
+            <% if (user.urole === 'admin') { %>
+                <a href="/backend"><button class="btn btn-neutral mb-1 w-96">จัดการหลังร้าน</button></a>
+            <% } %>
+        </div>
+        
+        <div class="grid flex-grow h-full card rounded-box p-3 px-3 place-items-center">
+
+            <div class="card shrink-0 w-full shadow-2xl bg-base-100">
+                <div class="mb-5 pt-3 grid place-items-center">
+                    <div class="navbar bg-base-100">
+                        <div class="navbar-start">
+                          
+                        </div>
+                        <div class="navbar-center">
+                          <a class="btn btn-ghost text-xl">แก้ไขโปรไฟล์</a>
+                        </div>
+                        <div class="navbar-end">
+                            
+                        </div>
+                      </div>
+                </div>
+                <div class="container">
+                    <div class="overflow-x-auto h-[500px]">
+                    <form method="post" action="/update_website" class="card-body">
+                        <p class="text-xl font-bold">เปลี่ยนชื่อผู้ใช้</p>
+                        <div class="form-control">
+                            <label class="label">
+                            <span class="label-text">ชื่อผู้ใช้</span>
+                            </label>
+                            <input type="varchar" placeholder="ชื่อผู้ใช้" name="name" value="<%= user.username %>" class="input input-bordered" required />
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                            <span class="label-text">อีเมล</span>
+                            </label>
+                            <input type="varchar" placeholder="อีเมล" value="<%= user.email %>" class="input input-bordered" disabled  />
+                            <label class="label">
+                            </label>
+                        </div>
+                        <div class="form-control">
+                            <button type="submit" class="btn">Confirm</button>
+                        </div>
+                    </form>  
+                    <hr>
+                    <form method="post" action="/update_website" class="card-body">
+                        <p class="text-xl font-bold">เปลี่ยนอีเมล</p>
+                        <div class="form-control">
+                            <label class="label">
+                            <span class="label-text">อีเมล</span>
+                            </label>
+                            <input type="email" placeholder="อีเมล" name="email" value="<%= user.email %>" class="input input-bordered" required />
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                            <span class="label-text">รหัสผ่าน</span>
+                            </label>
+                            <input type="varchar" placeholder="รหัสผ่าน" name="password" class="input input-bordered" />
+                            <label class="label">
+                            </label>
+                        </div>
+                        <div class="form-control">
+                            <button type="submit" class="btn">Confirm</button>
+                        </div>
+                    </form>  
+                    <hr>
+                    <form method="post" action="/update_website" class="card-body">
+                        <p class="text-xl font-bold">เปลี่ยนรหัสผ่าน</p>
+                        <div class="form-control">
+                            <label class="label">
+                            <span class="label-text">รหัสผ่านเดิม</span>
+                            </label>
+                            <input type="password" placeholder="รหัสผ่านเดิม" name="password" class="input input-bordered" required />
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                            <span class="label-text">รหัสผ่านใหม่</span>
+                            </label>
+                            <input type="password" placeholder="รหัสผ่านใหม่" name="n_password" class="input input-bordered" />
+                            <label class="label">
+                            </label>
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                            <span class="label-text">ยืนยันรหัสผ่านใหม่</span>
+                            </label>
+                            <input type="password" placeholder="ยืนยันรหัสผ่านใหม่" name="n_c_password" class="input input-bordered" />
+                            <label class="label">
+                            </label>
+                        </div>
+                        <div class="form-control">
+                            <button type="submit" class="btn">Confirm</button>
+                        </div>
+                    </form>  
+                </div>      
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<%- include('template/footer.ejs') %>

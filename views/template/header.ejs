@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= websiteData.name %></title>
+        <link rel="stylesheet" href="css/style.css">
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <audio id="clickSound" src="./sound/pop.mp3"></audio>
+    </head>
+    <body class="bg-[#1f2122]" id="clickButton">
+
+        <div class="navbar">
+            <div class="flex-1">
+                <a class="p-5">
+                    <div class="flex">
+                        <div class="grid w-14"><ion-icon name="<%= websiteData.logo %>" class="text-5xl" ></ion-icon></div>
+                        <div class="divider divider-horizontal"></div>
+                        <div class="grid place-items-center w-25 font-bold text-2xl"> <%= websiteData.name %></div>
+                    </div>
+                </a>
+            </div>
+            <nav class="navigation pc">
+                <a href="/home" class="tab-link"><span class="icon"><ion-icon name="home-outline"></ion-icon></span> หน้าหลัก</a>
+                <a href="/category" class="tab-link"><span class="icon"><ion-icon name="storefront-outline"></ion-icon></span> ร้านค้า</a>
+                <a href="/payment" class="tab-link"><span class="icon"><ion-icon name="logo-paypal"></ion-icon></span> เติมเงิน</a>
+                <a href="/contact" class="tab-link"><span class="icon"><ion-icon name="chatbubble-ellipses-outline"></ion-icon></span> ติดต่อ</a>
+              </nav>
+            <div class="flex-none p-5">
+              <div class="dropdown-end">
+                <a href="/profile" class="hvr-grow btn btn-outline btnProfile-popup rounded-badge">
+                    <div class="flex w-full">
+                        <div class="grid flex-grow card place-items-center"><img src="profile-header.jpg" class="rounded-full" alt=""></ion-icon></div>
+                        <div class="divider divider-horizontal"></div>
+                        <div class="grid flex-grow card place-items-center"><%= userData.username %></div>
+                    </div>
+                  </a>
+              </div>
+            </div>
+          </div>

@@ -1,0 +1,46 @@
+<%- include('template/header.ejs') %>
+
+    <div class="container">
+    
+        <div class="card shrink-0 w-full shadow-2xl bg-[#1f2122]">
+            <div class="mb-5 pt-3 grid place-items-center">
+                <p class="text-4xl font-bold"><ion-icon class="text-5xl" name="cart-outline" style="margin: -8px;"></ion-icon> หมวดหมู่สินค้าทั้งหมด</p>
+            </div>
+            <hr>
+            <div class="mx-auto">
+                <div class="mx-auto rounded-box py-5 p-5 mb-5" data-aos="fade-left">
+                    <div class="grid grid-cols-2 gap-2">
+            
+                        <% let recommendedcategoryFound = false; %>
+                        <% categoryData.forEach(category => { %>
+                            <% if (category.recommended_category === 1 ) { %>
+                                <a href="/category">
+                                    <div class="card bg-base-100 shadow-xl image-full hvr-float">
+                                        <figure><img src="/images/<%= category.image %>" /></figure>
+                                        <div class="card-body hvr-float">
+                                            <h2 class="card-title text-3xl"><%= category.name %></h2>
+                                            <div class="card-actions justify-end">
+                                                <%= category.details %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                       
+                            <% recommendedcategoryFound = true; %>
+                            <% } %>
+                        <% }); %>
+                    
+                        
+            
+                    </div>
+            
+                    <% if (!recommendedcategoryFound) { %>
+                        <p class="font-bold text-2xl grid justify-center">ยังไม่มีหมวดหมู่แนะนำ</p>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<%- include('template/footer.ejs') %>

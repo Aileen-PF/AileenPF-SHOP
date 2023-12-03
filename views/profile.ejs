@@ -1,0 +1,64 @@
+<%- include('template/header.ejs') %>
+
+    <div class="container">
+        <div class="mb-5">
+        <p class="text-4xl font-bold"><ion-icon class="text-5xl" name="person-circle-outline" style="margin-bottom: -8px;"></ion-icon> ข้อมูลโปรไฟล์</p>
+    </div>
+    
+    <div class="flex place-items-center">
+        <div class="grid h-full bg-base-300 rounded-box p-3 px-3 border" style="border-color: #4e4e4e">
+            <a href="/profile"><button class="btn btn-outline-neutral mb-1 w-96">โปรไฟล์ของคุณ</button></a>
+            <a href="/setting"><button class="btn btn-neutral mb-1 w-96">แก้ไขโปรไฟล์</button></a>
+            <a href="/history"><button class="btn btn-neutral mb-1 w-96">ประวัติการเติมเงิน</button></a>
+            <a href="/history"><button class="btn btn-neutral mb-1 w-96">ประวัติการซื้อของ</button></a>
+            <% if (userData.urole === 'admin') { %>
+                <a href="/backend"><button class="btn btn-neutral mb-1 w-96">จัดการหลังร้าน</button></a>
+            <% } %>
+        </div>
+        
+        <div class="grid flex-grow h-full card rounded-box p-3 px-3 place-items-center">
+
+            <div class="flex flex-col lg:flex-row mb-5">
+                <div class="grid h-32 card rounded-box place-items-center"><ion-icon name="person-circle-outline" style="font-size: 120px;"></div> 
+                <div class="divider lg:divider-horizontal"></div> 
+                <div class="grid flex-grow h-32 card rounded-box place-items-center">
+                    <p class="text-4xl"><b><%= userData.username %></b></p>
+                    <p class="text-2xl text-neutral-600"><b><%= userData.email %></b></p></div>
+              </div>
+
+            <div class="flex mb-5">
+                <div class="grid flex-grow card rounded-box place-items-center">
+                    <a href="/setting"><button class="btn btn-outline mb-1 w-60">แก้ไขโปรไฟล์</button></a>
+                </div>
+                    <div class="p-3"></div>
+                <div class="grid flex-grow card rounded-box place-items-center">
+                    <button class="btn glass mb-1 w-60" onclick="logoutProfile.showModal()">ออกจากระบบ</button>
+                </div>
+            </div>
+
+            <div class="grid h-auto card bg-base-300 rounded-box p-3 px-3 row h-[500px] hvr-reveal">
+                <div class="flex flex-col lg:flex-row">
+                    <div class="flex-grow lg:flex-grow-0 h-auto card bg-base-300 rounded-box mb-2 lg:mb-0 text-neutral-600 text-2xl">ชื่อผู้ใช้งาน<br>อีเมล<br>ยอดเงินคงเหลือ<br><p>สถานะ</p><br>เข้าร่วมเป็นสมาชิก</div>
+                    <div class="p-5"></div>
+                    <div class="flex-grow lg:flex-grow-1 h-auto card bg-base-300 rounded-box text-2xl"><%= userData.username %><br><%= userData.email %><br><%= userData.money %> ฿<br><p style="text-transform: uppercase;"><%= userData.urole %></p><br><%= userData.created_at %></div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<dialog id="logoutProfile" class="modal">
+        <div class="w-96 text-primary-content box">
+            <div class="card-body">
+              <h2 class="card-title">ออกจากระบบ!</h2>
+              <p>คุณต้องการออกจากระบบหรือไม่?</p>
+              <div class="card-actions justify-end">
+                <a class="btn btn-accent w-[100px]" onclick="logoutProfile.close()">ไม่</a>
+                <a href="/logout" class="btn w-25">ใช่, ออกจากระบบ</a>
+              </div>
+            </div>
+          </div>
+    </dialog>
+
+<%- include('template/footer.ejs') %>

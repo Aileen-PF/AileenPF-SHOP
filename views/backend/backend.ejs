@@ -1,0 +1,33 @@
+<%- include('../template/header.ejs') %>
+
+    <div class="container">
+
+        
+        <%- include('navbar.ejs') %>
+
+        <div class="mb-5">
+            <p class="text-4xl font-bold"><ion-icon class="text-5xl" name="podium-outline" style="margin-bottom: -8px;"></ion-icon> หน้าแดชบอร์ด</p>
+        </div>
+
+        <div class="flex place-items-center">
+            <div class="p-14 w-full h-96">
+                <div class="flex py-3">
+                    <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center w-25">ยอดการเติมในวันนี้</div>
+                    <div class="divider-horizontal"></div>
+                    <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center w-25">ยอดการเติมในเดือนนี้</div>
+                    <div class="divider-horizontal"></div>
+                    <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center w-25">ยอดการเติมทั้งหมด</div>
+                </div>
+                <div class="flex py-3">
+                    <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center w-25">ยอดกาารซื้อสินค้าวันนี้</div>
+                    <div class="divider-horizontal"></div>
+                    <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center w-25">ยอดกาารซื้อสินค้าเดือนนี้</div>
+                    <div class="divider-horizontal"></div>
+                    <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center w-25">ยอดกาารซื้อสินค้าทั้งหมด</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<%- include('../template/footer.ejs') %>

@@ -1,0 +1,230 @@
+<%- include('template/header.ejs') %>
+
+<div class="container mb-5">
+
+    <div class="flex w-full mb-5">
+
+                <div class="grid flex-grow rounded-box place-items-center hvr-wobble-horizontal w-full">
+                    <div class="slideshow-container" data-aos="flip-left">
+
+                    <div class="mySlides fade">
+                      <div class="numbertext"></div>
+                      <img src="<%= websiteData.banner1 %>" class="w-full h-auto rounded-box" style="width:100%">
+                    </div>
+                    
+                    <div class="mySlides fade">
+                      <div class="numbertext"></div>
+                      <img src="<%= websiteData.banner2 %>" class="w-full h-auto rounded-box" style="width:100%">
+                    </div>
+                    
+                    <div class="mySlides fade">
+                      <div class="numbertext"></div>
+                      <img src="<%= websiteData.banner1 %>" class="w-full h-auto rounded-box" style="width:100%">
+                    </div>
+                    
+                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+                    <a class="next" onclick="plusSlides(1)">❯</a>
+                    
+                    </div>
+                </div>
+                <div class="divider divider-horizontal"></div>
+                <div data-aos="zoom-in-left">
+                <a href="/shop" class="grid flex-grow rounded-box place-items-center hvr-reveal h-full w-80 py-3">
+                    <ion-icon name="storefront-outline" style="font-size: 150px; margin-bottom: -20px;"></ion-icon>
+                    <div class="py-3">
+                        <p class="font-bold text-2xl">ซื้อสินค้าเลย!</p>
+                        <p>เลือกหมวดหมู่ได้ที่นี่!</p>
+                    </div>
+                </a>
+            </div>
+    </div>
+        
+        <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+        }
+        </script>
+
+    <div class="alert mb-5 rounded-box" data-aos="zoom-in-down">
+        <div class="flex w-full font-bold">
+            <div class="grid flex-grow card rounded-box place-items-center p-2"><ion-icon class="text-3xl" name="megaphone-outline"></ion-icon></div>
+            <div class="grid flex-grow card rounded-box place-items-center text-2xl font-bold">ประกาศ</div>
+            <div class="divider divider-horizontal"></div>
+          </div>
+        <marquee class="text-2xl"><%= websiteData.declared %></marquee>
+    </div>
+
+    <div class="container mx-auto" >
+        <div class="grid grid-cols-4 gap-5">
+            <a href="https://www.messenger.com/t/61551033358926" target="_blank">
+                <div class="col-span-1 relative hvr-grow">
+                    <div class="card w-full h-auto bg-base-100 shadow-xl">
+                        <div class="relative">
+                            <img src="/feature-right.jpg" class="w-full h-auto rounded-box" />
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="/category">
+                <div class="col-span-1 relative hvr-grow">
+                    <div class="card w-full h-auto bg-base-100 shadow-xl">
+                        <div class="relative">
+                            <img src="/feature-right.jpg" class="w-full h-auto rounded-box" />
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="/spin">
+                <div class="col-span-1 relative hvr-grow">
+                    <div class="card w-full h-auto bg-base-100 shadow-xl">
+                        <div class="relative">
+                            <img src="/feature-right.jpg" class="w-full h-auto rounded-box" />
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="/payment">
+                <div class="col-span-1 relative hvr-grow">
+                    <div class="card w-full h-auto bg-base-100 shadow-xl">
+                        <div class="relative">
+                            <img src="/feature-right.jpg" class="w-full h-auto rounded-box" />
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="container mx-auto" data-aos="fade-up">
+        <div class="grid grid-cols-3 gap-3">
+            <div class="p-4 rounded-lg shadow-lg flex items-center glow-on-hover hvr-float">
+                <div class="mr-4 px-5 hvr-float-shadow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" fill="currentColor" class="bi bi-person-check" viewBox="0 0 16 16"><path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/></svg>
+                </div>
+                <div>
+                    <p class="text-lg font-bold">ผู้ใช้ทั้งหมด</p>
+                    <h2 class="text-4xl font-bold"><%= totalUsers %> <span class="text-lg">คน</span></h2>
+                </div>
+            </div>
+            <div class="p-4rounded-lg shadow-lg flex items-center glow-on-hover hvr-float">
+                <div class="mr-4 px-5 hvr-float-shadow">
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="128px" width="128px" xmlns="http://www.w3.org/2000/svg"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                </div>
+                <div>
+                    <p class="text-lg font-bold">สินค้าทั้งหมด</p>
+                    <h2 class="text-4xl font-bold"><%= totalProducts %> <span class="text-lg">ชิ้น</span></h2>
+                </div>
+            </div>
+            <div class="p-4rounded-lg shadow-lg flex items-center glow-on-hover hvr-float">
+                <div class="mr-4 px-5 hvr-float-shadow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" fill="currentColor" class="bi bi-piggy-bank" viewBox="0 0 16 16"><path d="M5 6.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm1.138-1.496A6.613 6.613 0 0 1 7.964 4.5c.666 0 1.303.097 1.893.273a.5.5 0 0 0 .286-.958A7.602 7.602 0 0 0 7.964 3.5c-.734 0-1.441.103-2.102.292a.5.5 0 1 0 .276.962z"/><path fill-rule="evenodd" d="M7.964 1.527c-2.977 0-5.571 1.704-6.32 4.125h-.55A1 1 0 0 0 .11 6.824l.254 1.46a1.5 1.5 0 0 0 1.478 1.243h.263c.3.513.688.978 1.145 1.382l-.729 2.477a.5.5 0 0 0 .48.641h2a.5.5 0 0 0 .471-.332l.482-1.351c.635.173 1.31.267 2.011.267.707 0 1.388-.095 2.028-.272l.543 1.372a.5.5 0 0 0 .465.316h2a.5.5 0 0 0 .478-.645l-.761-2.506C13.81 9.895 14.5 8.559 14.5 7.069c0-.145-.007-.29-.02-.431.261-.11.508-.266.705-.444.315.306.815.306.815-.417 0 .223-.5.223-.461-.026a.95.95 0 0 0 .09-.255.7.7 0 0 0-.202-.645.58.58 0 0 0-.707-.098.735.735 0 0 0-.375.562c-.024.243.082.48.32.654a2.112 2.112 0 0 1-.259.153c-.534-2.664-3.284-4.595-6.442-4.595zM2.516 6.26c.455-2.066 2.667-3.733 5.448-3.733 3.146 0 5.536 2.114 5.536 4.542 0 1.254-.624 2.41-1.67 3.248a.5.5 0 0 0-.165.535l.66 2.175h-.985l-.59-1.487a.5.5 0 0 0-.629-.288c-.661.23-1.39.359-2.157.359a6.558 6.558 0 0 1-2.157-.359.5.5 0 0 0-.635.304l-.525 1.471h-.979l.633-2.15a.5.5 0 0 0-.17-.534 4.649 4.649 0 0 1-1.284-1.541.5.5 0 0 0-.446-.275h-.56a.5.5 0 0 1-.492-.414l-.254-1.46h.933a.5.5 0 0 0 .488-.393zm12.621-.857a.565.565 0 0 1-.098.21.704.704 0 0 1-.044-.025c-.146-.09-.157-.175-.152-.223a.236.236 0 0 1 .117-.173c.049-.027.08-.021.113.012a.202.202 0 0 1 .064.199z"/></svg>
+                </div>
+                <div>
+                    <p class="text-lg font-bold">ขายแล้วทั้งหมด</p>
+                    <h2 class="text-4xl font-bold"><%= totalSales %> <span class="text-lg">ชิ้น</span></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rounded-badge bg-[#1f2122] py-3 p-3 mb-5" data-aos="fade-left">
+        <div class="flex w-full">
+            <div class="grid flex-grow card bg-[#27292a] place-items-center w-full text-2xl font-bold rounded-badge">หมวดหมู่แนะนำ</div>
+            <div class="divider divider-horizontal"></div>
+            <a href="/category" class="grid flex-grow card hvr-grow btn glass rounded-badge" style="background-color: #27292a;">เพิ่มเติม</a>
+        </div>
+    </div>
+
+    <div class="container mx-auto bg-[#1f2122] rounded-box py-5 p-5 mb-5" data-aos="fade-left">
+        <div class="grid grid-cols-2 gap-2">
+            <% let recommendedcategoryFound = false; %>
+            <% let displayedCategories = 0; %>
+            <% categoryData.forEach(category => { %>
+                <% if (category.recommended_category === 1 && displayedCategories < 4) { %>
+                    <a href="/category">
+                        <p></p>
+                        <div class="card bg-base-100 shadow-xl image-full hvr-float">
+                            <figure><img src="<%= category.image %>" /></figure>
+                            <div class="card-body hvr-float">
+                                <h2 class="card-title text-3xl"><%= category.name %></h2>
+                                <div class="card-actions justify-end">
+                                    <%= category.details %>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <% recommendedcategoryFound = true; %>
+                    <% displayedCategories++; %>
+                <% } %>
+            <% }); %>
+        </div>
+        <% if (!recommendedcategoryFound) { %>
+            <p class="font-bold text-2xl grid justify-center">ยังไม่มีหมวดหมู่แนะนำ</p>
+        <% } %>
+    </div>
+    
+
+        <div class="rounded-badge bg-[#1f2122] py-3 p-3 mb-5" data-aos="fade-left">
+            <div class="flex w-full">
+                <div class="grid flex-grow card bg-[#27292a] place-items-center w-full text-2xl font-bold rounded-badge">สินค้าแนะนำ</div>
+                <div class="divider divider-horizontal"></div>
+                <a href="/shop" class="grid flex-grow card hvr-grow btn glass rounded-badge" style="background-color: #27292a;">เพิ่มเติม</a>
+            </div>
+        </div>
+
+        <div class="bg-[#1f2122] rounded-box py-5 p-5">
+            <div class="grid grid-cols-5 gap-2" data-aos="fade-left">
+                <% let recommendedProductsFound = 0; %>
+                <% productsData.forEach((product, index) => { %>
+                    <% if (product.recommended_product === 1 && recommendedProductsFound < 5) { %>
+                        <div class="card bg-base-100 shadow-xl hvr-reveal">
+                            <figure class="px-3 pt-3">
+                                <img src="<%= product.image %>" alt="" class="rounded-xl w-full h-full"/>
+                            </figure>
+                            <div class="card-body">
+                                <h2 class="card-title" value="ไม่มีชื่อ"><%= product.name %></h2>
+                                <p><%= product.details %></p>
+                                <p style="color: #489380;"><b><%= product.price %> บาท</b></p>
+                                <div class="card-actions flex items-center justify-center">
+                                    <a href="/" class="btn btn-success w-full rounded-full">สั่งซื้อสินค้า</a>
+                                    <div class="badge badge-neutral">สินค้าจำนวน <%= product.quantity %> ชิ้น</div>
+                                </div>
+                            </div>
+                        </div>
+                        <% recommendedProductsFound++; %>
+                    <% } %>
+                <% }); %>
+            </div>
+        
+            <% if (recommendedProductsFound === 0) { %>
+                <p class="font-bold text-2xl grid justify-center">ยังไม่มีสินค้าแนะนำ</p>
+            <% } %>
+        </div>
+        
+    
+</div>
+
+<%- include('template/footer.ejs') %>

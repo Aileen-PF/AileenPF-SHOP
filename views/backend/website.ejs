@@ -1,0 +1,61 @@
+<%- include('../template/header.ejs') %>
+
+    <div class="container">
+
+        <%- include('navbar.ejs') %>
+    
+        <div class="card shrink-0 w-full shadow-2xl bg-base-100">
+            <div class="mb-5 pt-3 grid place-items-center">
+                <p class="text-4xl font-bold"><ion-icon class="text-5xl" name="laptop-outline" style="margin-bottom: -8px;"></ion-icon> จัดการเว็บไซต์</p>
+            </div>
+            <hr>
+            <div class="container">
+                <form method="post" action="/update_website" class="card-body">
+                    <div class="form-control">
+                        <label class="label">
+                        <span class="label-text">ชื่อเว็บไซต์</span>
+                        </label>
+                        <input type="varchar" placeholder="ชื่อเว็บไซต์" name="name" value="<%= website.name %>" class="input input-bordered" required />
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
+                        <span class="label-text">ภาพ Logo (ลิงค์)</span>
+                        </label>
+                        <input type="varchar" placeholder="ภาพ Logo (ลิงค์)" name="logo" value="<%= website.logo %>" class="input input-bordered" required />
+                        <label class="label">
+                        </label>
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
+                        <span class="label-text">ภาพ Background (ลิงค์)</span>
+                        </label>
+                        <input type="varchar" placeholder="ภาพ Background (ลิงค์)" name="background" value="<%= website.background %>" class="input input-bordered" required />
+                        <label class="label">
+                        </label>
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
+                        <span class="label-text">ประกาศ</span>
+                        </label>
+                        <input type="varchar" placeholder="ประกาศ" name="declared" value="<%= website.declared %>" class="input input-bordered" required />
+                        <label class="label">
+                        </label>
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
+                        <span class="label-text">ช่องทางการติดต่อ Facebook (ลิงค์)</span>
+                        </label>
+                        <input type="varchar" placeholder="ช่องทางการติดต่อ Facebook (ลิงค์)" name="facebook" value="<%= website.facebook %>" class="input input-bordered" required />
+                        <label class="label">
+                        </label>
+                    </div>
+                    <div class="form-control mt-6">
+                        <button type="submit" class="btn">Confirm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+<%- include('../template/footer.ejs') %>

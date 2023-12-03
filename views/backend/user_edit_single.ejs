@@ -1,0 +1,51 @@
+<%- include('../template/header.ejs') %>
+
+
+    <div class="container">
+
+        <div class="card shrink-0 w-full shadow-2xl bg-base-100">
+            <div class="mb-5 pt-3 grid place-items-center">
+                <p class="text-4xl font-bold"><ion-icon class="text-5xl" name="pencil-outline" style="margin: -8px;"></ion-icon> แก้ไขข้อมูลผู้ใช้</p>
+            </div>
+            <hr>
+            <div class="container">
+                <form action="/user_edit/<%= id %>" method="post" class="card-body">
+                    <div class="form-control">
+                        <label class="label">
+                        <span class="label-text">ชื่อผู้ใช้งาน</span>
+                        </label>
+                        <input type="varchar" placeholder="ชื่อผู้ใช้งาน" id="name" name="username" value="<%= username %>" class="input input-bordered" required />
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
+                        <span class="label-text">อีเมล</span>
+                        </label>
+                        <input type="email" placeholder="อีเมล" id="email" name="email" value="<%= email %>" class="input input-bordered" required />
+                        <label class="label">
+                        </label>
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
+                        <span class="label-text">สถานะ</span>
+                        </label>
+                        <input type="varchar" placeholder="สถานะ" id="urole" name="urole" value="<%= urole %>" class="input input-bordered" required />
+                        <label class="label">
+                        </label>
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
+                        <span class="label-text">จำนวนเงิน</span>
+                        </label>
+                        <input type="varchar" placeholder="จำนวนเงิน" id="money" name="money" value="<%= money %>" class="input input-bordered" required />
+                        <label class="label">
+                        </label>
+                    </div>
+                    <div class="form-control mt-6">
+                        <button type="submit" onclick="return alert('คุณต้องการยืนยันการแก้ไขชื่อผู้ใช้นี้ใช่หรือไม่?')" class="btn">Confirm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<%- include('../template/footer.ejs') %>
